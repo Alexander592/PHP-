@@ -1,26 +1,26 @@
- <?php
-mb_internal_encoding('UTF-8');
-if(!empty($_REQUEST)) {
-if(
-count($_REQUEST) == 3 and
-(isset($_REQUEST[1]) and strlen($_REQUEST[1]) > 0) and
-(isset($_REQUEST[2]) and strlen($_REQUEST[2]) > 0) and
-(isset($_REQUEST[3]) and strlen($_REQUEST[3]) > 0)
-) {
-sort($_REQUEST);
-if(pow($_REQUEST[2], 2) == (pow($_REQUEST[0], 2)) + pow($_REQUEST[1], 2)) {
-echo implode(', ', $_REQUEST)." - тройка Пифагора";
-}
-else echo "Числа: ".implode(', ', $_REQUEST)." не являются тройкой Пифагора";
-}
-else echo "Поля не могут быть пустыми.";
+<?php
+if (isset($_REQUEST['date'])) {
+    $date = explode('.', $_REQUEST['date']);
+    $now = time();
+    $dr = mktime(23, 59, 59, $date[1], $date[0]) + 1;
+    if ($dr > $now) {
+        echo floor(($dr - $now) / 60 / 60 / 24) . ' Дней ';
+    } else {
+        echo floor(($dr - $now + 60 * 60 * 24 * 365) / 60 / 60 / 24) . ' Дней';
+    }
 }
 ?>
-<form action="main.php" method="GET">
-<input type="text" name="1"><br><br>
-<input type="text" name="2"><br><br>
-<input type="text" name="3"><br><br>
-<input type="submit" name="">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="main.php" method="GET">
+ <input type="text" name="date" placeholder="узнать сколько осталось до др)">
+    <input type="submit">
 </form>
 </body>
 </html>
