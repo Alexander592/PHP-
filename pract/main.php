@@ -1,8 +1,11 @@
 <?php
 
-$a=$_POST['inp'];
-
-$s=$a*32;
+$n=$_POST['inp'];
+$factorial = 1;
+ 
+for ($i = 1; $i <= $n; $i++) {
+    $factorial *= $i;
+}
 ?>
 
 
@@ -19,8 +22,8 @@ $s=$a*32;
 </head>
 <body>
 	<form action="main.php" method="POST">
-		<input type="text" name="inp" value="<?php  echo $s;?>">
-		<input type="submit" value="конвертировать">
+		<input type="text" name="inp" value="<?php  echo $factorial;?>">
+		<input type="submit" value="посчитать">
 
 	</form>
 </body>
