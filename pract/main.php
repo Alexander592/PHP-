@@ -1,10 +1,10 @@
 <?php
 
 $n=$_POST['inp'];
-$factorial = 1;
- 
-for ($i = 1; $i <= $n; $i++) {
-    $factorial *= $i;
+
+   for ($i=1; $i<=$n; $i++){  
+if ($n % $i==0)      
+  	echo "$i <br>";
 }
 ?>
 
@@ -22,9 +22,8 @@ for ($i = 1; $i <= $n; $i++) {
 </head>
 <body>
 	<form action="main.php" method="POST">
-		<input type="text" name="inp" value="<?php  echo $factorial;?>">
+		<input type="text" name="inp">
 		<input type="submit" value="посчитать">
-
 	</form>
 </body>
 </html>
