@@ -1,13 +1,10 @@
 <?php
-if (isset($_REQUEST['date'])) {
-    $date = explode('.', $_REQUEST['date']);
-    $now = time();
-    $dr = mktime(23, 59, 59, $date[1], $date[0]) + 1;
-    if ($dr > $now) {
-        echo floor(($dr - $now) / 60 / 60 / 24) . ' Дней ';
-    } else {
-        echo floor(($dr - $now + 60 * 60 * 24 * 365) / 60 / 60 / 24) . ' Дней';
-    }
+if (!empty($_REQUEST['text'])) {
+    $str = $_REQUEST['text'];
+    $strLen = strlen($str);
+    $wordsCount = count(explode(' ', $str));
+    $spaceCount = $wordsCount - 1;
+    echo 'В тексте '.$wordsCount.' слов, '.$strLen.' символов, '.$spaceCount . ' пробелов.';
 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +16,7 @@ if (isset($_REQUEST['date'])) {
 </head>
 <body>
     <form action="main.php" method="GET">
- <input type="text" name="date" placeholder="узнать сколько осталось до др)">
+  <textarea name="text" placeholder="">Привет мой милый друг!</textarea>
     <input type="submit">
 </form>
 </body>
