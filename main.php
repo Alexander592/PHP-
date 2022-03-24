@@ -1,10 +1,13 @@
 <?php
+mb_internal_encoding("UTF-8");
 if (!empty($_REQUEST['text'])) {
     $str = $_REQUEST['text'];
-    $strLen = strlen($str);
-    $wordsCount = count(explode(' ', $str));
-    $spaceCount = $wordsCount - 1;
-    echo 'В тексте '.$wordsCount.' слов, '.$strLen.' символов, '.$spaceCount . ' пробелов.';
+    $strLen = mb_strlen($str);
+    $valuesCount = array_count_values(str_split($str));
+    foreach ($valuesCount as $key => $item) {
+        $x = 100 / $strLen * $item;
+        echo '"'.$key.'" - "'.round($x, 2).'"<br>';
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -15,8 +18,9 @@ if (!empty($_REQUEST['text'])) {
     <title>Document</title>
 </head>
 <body>
-    <form action="main.php" method="GET">
-  <textarea name="text" placeholder="">Привет мой милый друг!</textarea>
+    <form action="main.php" method="post">
+  <textarea name="text" placeholder="">hello my friend!
+</textarea>
     <input type="submit">
 </form>
 </body>
