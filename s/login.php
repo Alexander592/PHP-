@@ -4,7 +4,7 @@
 	if(!empty($_POST['name']) && !empty($_POST['pas'])){
 		$name=$_POST['name'];
 		$pas=$_POST['pas'];
-		if($name== 'Alex' && $pas=='12345'){
+		if($name== 'Anonimus' && $pas=='kotik'){
 			$_SESSION['user_name']=$name;
 			header('Location: index.php');
 		}
