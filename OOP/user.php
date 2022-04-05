@@ -1,6 +1,6 @@
 <?php 
 session_start();
-
+header('Content-Type: text/html; charset=utf-8');
 class User {
 	private $name;
 	private $login;
@@ -30,7 +30,7 @@ class User {
 	}
 	
 	public function LoadFromForm($P) {
-		if (!empty($P['user_name']) && !empty($P['login']) && !empty($P['pass'])) {
+		if (!empty($P['name']) && !empty($P['login']) && !empty($P['pass'])) {
 			$this->set($P['name'], $P['login'], $P['pass']);
 		}
 	}
@@ -38,7 +38,7 @@ class User {
 	public function show() {
 		echo '<h3> Имя: '.$this->name.'</h3>';
 		echo '<h3> Логин: '.$this->login.'</h3>';
+		echo '<a href="logout.php">Выйти</a>'; 
 	}
 }
 ?>
-© 2022 
