@@ -7,6 +7,7 @@
 		new Route('/p/', 'test', 'act1'),
 		new Route('/pok/', 'test', 'act2'),
 		new Route('/k/', 'test', 'act3'),
+		new Route('/nums/:n1/:n2/:n3/', 'num', 'sum'),
 
 	];
 ?>
