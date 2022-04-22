@@ -34,18 +34,14 @@ class UserController extends Controller
         }
     }
 
-    public function first($params){
-        //?!
+     public function first($params){
         $i=1;
-        $p=(int)$params;
-        while ($i<$p){
+        $p = (int)$params['n'];
+        while ($i<$p+1){
             print_r ($this->users[$i]);
             echo '<p></p>';
             $i++;
         }
-        }
-
-
-
+    }
 }
 ?> 
