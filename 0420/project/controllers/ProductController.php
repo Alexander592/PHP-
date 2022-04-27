@@ -4,7 +4,7 @@ use Core\Controller;
 
 class ProductController extends Controller
 {
-    private $product;
+    private $products;
 
 
     public function __construct()
@@ -44,7 +44,7 @@ class ProductController extends Controller
     }
     public function show($params)
 	{
-        var_dump( $this->products[ $params['n']]); // âûâîäèì ñòðàíèöó ïî íîìåðó
+        var_dump( $this->products[ $params['n']]);  
 	}
 
 	public function all(){
