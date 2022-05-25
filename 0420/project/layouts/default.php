@@ -1,8 +1,7 @@
-<!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>тайтл страницы</title>
+		<title><?= $title ?></title>
 	</head>
 	<body>
 		<header>
