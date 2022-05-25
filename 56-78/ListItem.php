@@ -5,6 +5,10 @@ require_once 'Tag.php';
 		public function __construct()
 		{
 			parent::__construct('li');
-		}
+		} 
+		public function __toString() 
+		{
+			return parent::show();
+		} 
 	}
-?> 
+?>
